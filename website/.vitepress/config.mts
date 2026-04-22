@@ -5,6 +5,7 @@ export default defineConfig({
   title: "ThreatExchange",
   description:
     "Trust & Safety tools for working together to fight digital harms.",
+  srcDir: "./content",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
