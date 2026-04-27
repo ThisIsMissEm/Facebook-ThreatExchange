@@ -20,7 +20,7 @@ export default defineConfig({
       { text: "Python Library", link: "/pytx" },
       { text: "HMA", link: "/hma" },
       {
-        text: "ThreatExchange Program",
+        text: "ThreatExchange Platform",
         link: "https://developers.facebook.com/docs/threat-exchange/",
         target: "_blank",
       },
