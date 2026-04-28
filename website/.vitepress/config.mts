@@ -42,8 +42,9 @@ export default defineConfig({
                 { text: "Implementations", link: "/implementations" },
               ],
             },
-            { text: "TMK", base: "/hashing/tmk/", link: "/" },
             { text: "vPDQ", base: "/hashing/vpdq/", link: "/" },
+            { text: "TMK", base: "/hashing/tmk/", link: "/" },
+
           ],
         },
       ],
