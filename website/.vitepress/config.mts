@@ -14,6 +14,7 @@ export default defineConfig({
         text: "Hashing Algorithms",
         items: [
           { text: "PDQ", link: "/hashing/pdq" },
+          { text: "vPDQ", link: "/hashing/vpdq" },
           { text: "TMK", link: "/hashing/tmk" },
         ],
       },
@@ -44,7 +45,6 @@ export default defineConfig({
             },
             { text: "vPDQ", base: "/hashing/vpdq/", link: "/" },
             { text: "TMK", base: "/hashing/tmk/", link: "/" },
-
           ],
         },
       ],
