@@ -35,12 +35,13 @@ jobs:
       - name: Setup pnpm
         uses: pnpm/action-setup@v6
         with:
+          package_json_file: website/package.json
           run_install: true
 
       - name: Setup Node.js
         uses: actions/setup-node@v6
         with:
-          node-version-file: ".node-version"
+          node-version-file: "website/.node-version"
           check-latest: true
           cache: pnpm
 
