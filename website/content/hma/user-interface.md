@@ -284,13 +284,13 @@ Several of the hash exchanges supported require credentials, provided in the for
 * An optional field only\_esp\_ids, which accepts a container of ints. So one valid json blob would be
 
 ```json
-{ 'environment': 'https://hashsharing.ncmec.org/npo' } 
+{ "environment": "https://hashsharing.ncmec.org/npo" } 
 ```
 
 And one that filled out the optional field would be:
 
 ```json
-{ 'environment': 'https://hashsharing.ncmec.org/npo', 'only_esp_ids': [1] }
+{ "environment": "https://hashsharing.ncmec.org/npo", "only_esp_ids": [1] }
 ```
 
 Users can use this configuration to:
@@ -303,7 +303,7 @@ Users can use this configuration to:
 
 <img width="518" alt="Invalid exchange configuration" src="https://github.com/user-attachments/assets/82937f52-ce08-42ac-a29d-49414229d186" />
 
-Right now, you'll need to know the exact form for the JSON, which can be challenging unless you've read the underlying code. [python-threatexchange](../python-threatexchange) provides a CLI method that can help you create and view valid JSON, which can then be pasted into the tool `tx collab config`.
+Right now, you'll need to know the exact form for the JSON, which can be challenging unless you've read the underlying code. [python-threatexchange](../pytx/index.md) provides a CLI method that can help you create and view valid JSON, which can then be pasted into the tool `tx collab config`.
 
 
 ## **Match Debugging (`/ui/match`)**
