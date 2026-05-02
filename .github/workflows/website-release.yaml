@@ -25,9 +25,9 @@ defaults:
 jobs:
   build:
     runs-on: ubuntu-latest
-    if: ${{ github.repository == 'ThisIsMissEm/Facebook-ThreatExchange' }}
+    if: ${{ github.repository == 'Facebook/ThreatExchange' }}
     env:
-      PAGES_PATH: /Facebook-ThreatExchange/
+      PAGES_PATH: /ThreatExchange/
     steps:
       - name: Checkout
         uses: actions/checkout@v6
