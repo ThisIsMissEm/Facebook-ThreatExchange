@@ -105,12 +105,14 @@
   --vp-c-text-1: var(--vp-c-brand-1);
 }
 
-.VPNavBar .title {
-  padding-left: max(0, calc((100% - (var(--vp-layout-max-width) - 64px)) / 2));
-  width: calc(
-    (100% - (var(--vp-layout-max-width) - 64px)) / 2 + var(--vp-sidebar-width) -
-      32px
-  );
+@media (min-width: 960px) {
+  .VPNavBar.has-sidebar .title {
+    padding-left: max(0, calc((100% - (var(--vp-layout-max-width) - 64px)) / 2));
+    width: calc(
+      (100% - (var(--vp-layout-max-width) - 64px)) / 2 +
+        var(--vp-sidebar-width) - 32px
+    );
+  }
 }
 
 .VPNavBarTitle .title {
@@ -171,9 +173,23 @@
   display: none;
 }
 
+.VPNav .VPNavBar .divider .divider-line {
+  background-color: transparent;
+}
+
+.VPNav .VPNavBar.screen-open {
+  border-bottom-color: transparent;
+}
+
 .VPNavBarSearchButton {
   background: none !important;
-  border: 1px solid var(--vp-c-white-30) !important;
+  border: none !important;
+}
+
+@media (min-width: 768px) {
+  .VPNavBarSearchButton {
+    border: 1px solid var(--vp-c-white-30) !important;
+  }
 }
 
 .VPNavBarSearchButton .text {
@@ -182,6 +198,72 @@
 .VPNavBarSearchButton .keys {
   background: var(--vp-c-brand-2);
   border-color: color-mix(in srgb, var(--vp-c-brand-2), black 10%) !important;
+}
+
+.VPNavBarHamburger .top,
+.VPNavBarHamburger .middle,
+.VPNavBarHamburger .bottom {
+  background: var(--vp-c-white);
+}
+
+/**
+ * Extend mobile navigation to iPad portrait widths (up to 834px, the
+ * 11" iPad Pro). Selectors chain `.VPNavBar` to outrank Vue scoped
+ * styles like `.VPNavBarMenu[data-v-...]` (specificity 0,2,0).
+ */
+@media (min-width: 768px) and (max-width: 834px) {
+  .VPNavBar .VPNavBarMenu {
+    display: none;
+  }
+  .VPNavBar .VPNavBarHamburger {
+    display: flex;
+  }
+  .VPNavBar .VPNavBarExtra {
+    display: none;
+  }
+
+  /* Without flex-grow, search collapses to its content and joins the
+     hamburger on the right edge (parent .content-body is flex-end). */
+  .VPNavBar .VPNavBarSearch {
+    flex-grow: 0;
+  }
+
+  .VPNavBar .wrapper {
+    padding: 0 16px;
+  }
+
+  .VPNav .VPNavScreen {
+    display: block;
+  }
+}
+
+/**
+ * NavScreen (mobile menu panel) theming.
+ *
+ * The panel can appear at any width <= 834px (default mobile band plus the
+ * iPad extension above), so these rules aren't gated to a media query.
+ * Without them, menu links use `--vp-c-text-1` (dark) and the appearance
+ * pill inherits the `.VPNav { --vp-c-text-2: white }` override against its
+ * own light `--vp-c-bg-soft` background, rendering its label invisible.
+ */
+.VPNavScreen .VPNavScreenMenuLink,
+.VPNavScreen .VPNavScreenMenuGroup .button,
+.VPNavScreen .VPNavScreenMenuGroupLink,
+.VPNavScreen .VPNavScreenMenuGroupSection .title {
+  color: var(--vp-c-white) !important;
+}
+
+.VPNavScreen .VPNavScreenMenuLink,
+.VPNavScreen .VPNavScreenMenuGroup {
+  border-bottom-color: var(--vp-c-white-30);
+}
+
+.VPNavScreen .VPNavScreenAppearance {
+  background-color: transparent;
+  border: 1px solid var(--vp-c-white-30);
+}
+.VPNavScreen .VPNavScreenAppearance .text {
+  color: var(--vp-c-white);
 }
 
 /**
